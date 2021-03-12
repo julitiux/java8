@@ -39,19 +39,7 @@ subprojects {
     def excludeModulesSpringFox = ['spring-web','spring-webmvc','spring-aop','spring-beans','spring-context','spring-core','jackson-annotations']
     compile 'log4j:log4j:1.2.17'
     compile "org.codehaus.groovy:groovy-all:2.4.16"
-    compile ('io.springfox:springfox-swagger2:2.9.2'){
-      excludeModulesSpringFox.each { excludeModule ->
-        exclude module:excludeModule
-      }
-    }
-    compile ('io.springfox:springfox-swagger-ui:2.9.2'){
-      excludeModulesSpringFox.each { excludeModule ->
-        exclude module:excludeModule
-      }
-    }
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.0'
     testCompile 'junit:junit:4.12'
-    compile 'io.reactivex.rxjava2:rxjava:2.2.20'
   }
 }
 
@@ -61,8 +49,6 @@ project(':core') {
     compile "$springGroup:spring-context:$springVersion"
     compile "$springGroup:spring-context-support:$springVersion"
     compile "$springGroup:spring-orm:$springVersion"
-    compile 'com.oracle:ojdbc6:11.2.0.3'
-    compile "commons-dbcp:commons-dbcp:1.4"  // MANAGMENT THE DATABASE CONNECTIONS
 
     testCompile "$springGroup:spring-test:$springVersion"
     testCompile "org.mockito:mockito-all:1.9.5"
