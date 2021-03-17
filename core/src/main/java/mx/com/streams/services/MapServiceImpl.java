@@ -24,8 +24,6 @@ public class MapServiceImpl implements MapService {
     return staffList.stream().map( it -> convertElements.apply(it) ).collect(Collectors.toList());
   }
 
-  Function<Staff, StaffPublic> convertElements = (it) -> {
-    return new StaffPublic(it.getName(), it.getAge(), it.getSalary().toString());
-  };
+  Function<Staff, StaffPublic> convertElements = (it) -> new StaffPublic(it.getName(), it.getAge(), it.getSalary().toString());
 
 }
