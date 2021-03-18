@@ -1,5 +1,7 @@
 package mx.com.streams.services;
 
-public interface FlatMapService {
+import java.util.List;
 
+public interface FlatMapService {
+  public List<String> convertListStringStringToListString(List<List<String>> stringListList);
 }
