@@ -9,7 +9,7 @@ class FlatMapServiceSpec extends Specification {
   @Shared
     service = new FlatMapServiceImpl()
 
-  def ""() {
+  def "testing flatMap in java 8"() {
     given:
     List stringListList = [[1], [2, 3, 4], [5, 6, 7], [8, 9]]
     List response = []
