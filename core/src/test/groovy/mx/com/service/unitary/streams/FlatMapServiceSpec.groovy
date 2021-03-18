@@ -16,7 +16,7 @@ class FlatMapServiceSpec extends Specification {
     when:
     response = service.convertListStringStringToListString(stringListList)
     then:
-    println response
+    response == stringListList.flatten()
 
   }
 
