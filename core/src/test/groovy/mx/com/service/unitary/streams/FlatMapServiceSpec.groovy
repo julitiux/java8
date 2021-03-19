@@ -1,6 +1,8 @@
 package mx.com.service.unitary.streams
 
 import mx.com.flatMap.services.FlatMapServiceImpl
+import mx.com.streams.domain.Travel
+import mx.com.streams.domain.User
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -17,7 +19,28 @@ class FlatMapServiceSpec extends Specification {
     response = service.convertListStringStringToListString(stringListList)
     then:
     response == stringListList.flatten()
-
   }
+
+
+  def ""() {
+    given:
+    List<Travel> firstTravelList = [new Travel("Mexico"),
+                                    new Travel("USA"),
+                                    new Travel("Francia"),
+                                    new Travel("Japon")]
+    List<Travel> secodTravelList = [new Travel("Londes"),
+                                    new Travel("Buenos Aires"),
+                                    new Travel("Mexico")]
+    List<User> userList = [new User("j.ramirez", firstTravelList),
+                           new User("g.reyes", secodTravelList)]
+    List<Travel> response = []
+    when:
+    response = service.getTravelListByUserList(userList)
+    then:
+    response.each {
+      println it.pais
+    }
+  }
+
 
 }
