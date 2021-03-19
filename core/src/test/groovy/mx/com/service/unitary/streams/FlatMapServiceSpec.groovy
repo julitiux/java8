@@ -37,9 +37,7 @@ class FlatMapServiceSpec extends Specification {
     when:
     response = service.getTravelListByUserList(userList)
     then:
-    response.each {
-      println it.pais
-    }
+    response == userList*.travelList.flatten()
   }
 
 
