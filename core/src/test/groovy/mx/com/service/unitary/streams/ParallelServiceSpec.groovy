@@ -11,12 +11,18 @@ class ParallelServiceSpec extends Specification {
   @Shared
     service = new ParallelServiceImpl()
 
-  def ""() {
+  def "Print a range of integer sequencial"() {
     given:
     IntStream intStream = IntStream.rangeClosed(1, 10);
-    when:
+    expect:
     service.justPrintARangeNumberParallelOrNot(intStream)
-    then:
-    true
   }
+
+  def "Print a range of integer parallel"() {
+    given:
+    IntStream intStream = IntStream.rangeClosed(1, 10);
+    expect:
+    service.justPrintARangeNumberParallelOrNot(intStream.parallel())
+  }
+
 }
