@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class ParallelServiceImpl implements ParallelService {
 
-  Consumer<IntStream> print = System.out::println;
+  Consumer<IntStream> print = it -> it.forEach(System.out::println);
 
   @Override
   public void justPrintARangeNumberParallelOrNot(IntStream intStream) {
