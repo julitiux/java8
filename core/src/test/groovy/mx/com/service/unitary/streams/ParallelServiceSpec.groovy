@@ -25,7 +25,7 @@ class ParallelServiceSpec extends Specification {
     service.justPrintARangeNumberParallelOrNot(intStream.parallel())
   }
 
-  def ""() {
+  def "unit test that return if using parallel or not"() {
     given:
     IntStream intStream = _intStream
     Boolean response
@@ -34,8 +34,9 @@ class ParallelServiceSpec extends Specification {
     then:
     response == _response
     where:
-    _intStream                   | _response
-    IntStream.rangeClosed(1, 10) | false
+    _intStream                              | _response
+    IntStream.rangeClosed(1, 10)            | false
+    IntStream.rangeClosed(1, 10).parallel() | true
   }
 
 
