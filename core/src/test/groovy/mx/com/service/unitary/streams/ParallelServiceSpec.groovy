@@ -25,4 +25,18 @@ class ParallelServiceSpec extends Specification {
     service.justPrintARangeNumberParallelOrNot(intStream.parallel())
   }
 
+  def ""() {
+    given:
+    IntStream intStream = _intStream
+    Boolean response
+    when:
+    response = service.isParallelRunning(intStream)
+    then:
+    response == _response
+    where:
+    _intStream                   | _response
+    IntStream.rangeClosed(1, 10) | false
+  }
+
+
 }
