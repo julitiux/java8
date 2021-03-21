@@ -41,5 +41,13 @@ class ParallelServiceSpec extends Specification {
     IntStream.rangeClosed(1, 10).parallel() | true
   }
 
+  def ""() {
+    given:
+    List<String> stringList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    expect:
+    service.usingParallelStrem(stringList.parallelStream())
+    service.usingParallelStrem(stringList.stream())
+  }
+
 
 }
