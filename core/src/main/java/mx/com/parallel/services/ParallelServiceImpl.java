@@ -13,4 +13,10 @@ public class ParallelServiceImpl implements ParallelService {
   public void justPrintARangeNumberParallelOrNot(IntStream intStream) {
     print.accept(intStream);
   }
+
+  @Override
+  public Boolean isParallelRunning(IntStream intStream) {
+    print.accept(intStream);
+    return intStream.isParallel();
+  }
 }
