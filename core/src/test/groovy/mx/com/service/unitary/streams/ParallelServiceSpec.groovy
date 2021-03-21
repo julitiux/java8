@@ -6,6 +6,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 import java.util.stream.IntStream
+import java.util.stream.Stream
 
 @Unroll
 class ParallelServiceSpec extends Specification {
@@ -41,12 +42,14 @@ class ParallelServiceSpec extends Specification {
     IntStream.rangeClosed(1, 10).parallel() | true
   }
 
-  def ""() {
+  def "unit testing using with parallel strean or not"() {
     given:
-    List<String> stringList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    Stream stream = _stream
     expect:
-    service.usingParallelStrem(stringList.parallelStream())
-    service.usingParallelStrem(stringList.stream())
+    service.usingParallelStrem(stream)
+    where:
+    _stream << [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].stream(),
+                ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].parallelStream()]
   }
 
 
