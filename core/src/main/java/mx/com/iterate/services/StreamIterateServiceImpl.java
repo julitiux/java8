@@ -18,7 +18,7 @@ public class StreamIterateServiceImpl implements StreamIterateService {
 
   @Override
   public void fibonacci(Integer limit) {
-    Stream.iterate(new int[]{}, n -> new int[]{n[1], n[0] + n[1]}).limit(limit).map(n -> n[0]).forEach(System.out::println);
+    Stream.iterate(new int[]{0, 1}, n -> new int[]{n[1], n[0] + n[1]}).limit(limit).map(n -> n[0]).forEach(System.out::println);
   }
 
 
