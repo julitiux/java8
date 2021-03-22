@@ -29,11 +29,13 @@ class StreamIterateServiceSpec extends Specification {
     _limit << [2, 100, 2000]
   }
 
-  def""(){
+  def"unit test of the method fibonacci using the values #_limit"(){
     given:
-    Integer limit = 100
+    Integer limit = _limit
     expect:
     service.fibonacci(limit)
+    where:
+    _limit << [10,100,1000,10000]
   }
 
 }
