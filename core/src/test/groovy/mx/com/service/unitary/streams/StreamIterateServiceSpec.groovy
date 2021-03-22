@@ -20,4 +20,11 @@ class StreamIterateServiceSpec extends Specification {
     _limit << [0, 1, 9, 1000]
   }
 
+  def"testing impar numbers "(){
+    given:
+    Integer limit = 200
+    expect:
+    service.streamWithFilter(limit)
+  }
+
 }
