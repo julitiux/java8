@@ -1,5 +1,6 @@
 package mx.com.streamCollect.services;
 
+import mx.com.streams.domain.Item;
 import mx.com.streams.services.StreamCollectService;
 
 import java.util.Comparator;
@@ -22,6 +23,11 @@ public class StreamCollectServiceImpl implements StreamCollectService {
     Map<String, Long> map = stringList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     map.entrySet().stream().sorted(Map.Entry.<String, Long> comparingByValue().reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
     return map;
+  }
+
+  @Override
+  public Map<String, Integer> countTheKeyByRepeatInList(List<Item> itemList) {
+    return itemList.stream().collect(Collectors.groupingBy(Item::getName, Collectors.summingInt(Item::getQty)));
   }
 
 }
