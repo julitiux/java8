@@ -14,7 +14,7 @@ class ConvertStreamToListSpec extends Specification {
   @Shared
     service = new ConvertStreamToListImpl()
 
-  def ""() {
+  def "making unit test to convert a Strem to a List"() {
     given:
     Stream<String> stream = _stream
     List<String> response = []
