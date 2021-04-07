@@ -7,9 +7,8 @@ import spock.lang.Specification
 
 class StreamCollectServiceSpec extends Specification {
 
-
   @Shared
-  service = new StreamCollectServiceImpl()
+    service = new StreamCollectServiceImpl()
 
   def ""() {
     given:
@@ -27,7 +26,10 @@ class StreamCollectServiceSpec extends Specification {
     when:
     response = service.countTheKeyByRepeatInList(itemList)
     then:
-    println response
+    response == itemList.groupBy { it.name }.collectEntries {
+      k, v ->
+        [(k): v*.qty.sum()]
+    }
   }
 
 }
