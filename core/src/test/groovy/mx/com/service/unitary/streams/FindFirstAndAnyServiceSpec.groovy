@@ -26,4 +26,15 @@ class FindFirstAndAnyServiceSpec extends Specification {
     ['one', 'two', 'three', 'four', 'five'] | 'one'
   }
 
+  def""(){
+    given:
+    List<String> stringList = ['one', 'two', 'three', 'four', 'five']
+    String response
+    when:
+    response = service.findFirst(stringList)
+    then:
+    println response
+  }
+
+
 }
