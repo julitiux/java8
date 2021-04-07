@@ -10,6 +10,18 @@ class StreamCollectServiceSpec extends Specification {
   @Shared
     service = new StreamCollectServiceImpl()
 
+
+  def ""() {
+    given:
+    List<String> stringList = ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro']
+    Map response = [:]
+    when:
+    response = service.usingGroupBy(stringList)
+    then:
+    println response
+
+  }
+
   def "test a groupBy with Java8"() {
     given:
     List<Item> itemList = _itemList
