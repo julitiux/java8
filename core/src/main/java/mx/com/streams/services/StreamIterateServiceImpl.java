@@ -1,4 +1,4 @@
-package mx.com.iterate.services;
+package mx.com.streams.services;
 
 import mx.com.streams.services.StreamIterateService;
 

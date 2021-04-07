@@ -1,6 +1,6 @@
 package mx.com.service.unitary.streams
 
-import mx.com.iterate.services.StreamIterateServiceImpl
+import mx.com.streams.services.StreamIterateServiceImpl
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll

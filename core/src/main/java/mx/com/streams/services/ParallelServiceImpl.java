@@ -1,4 +1,4 @@
-package mx.com.parallel.services;
+package mx.com.streams.services;
 
 import mx.com.streams.services.ParallelService;
 

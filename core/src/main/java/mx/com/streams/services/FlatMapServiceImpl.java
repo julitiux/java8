@@ -1,4 +1,4 @@
-package mx.com.flatMap.services;
+package mx.com.streams.services;
 
 import mx.com.streams.domain.Travel;
 import mx.com.streams.domain.User;

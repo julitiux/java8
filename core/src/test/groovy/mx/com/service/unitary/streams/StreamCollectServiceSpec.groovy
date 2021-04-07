@@ -1,6 +1,6 @@
 package mx.com.service.unitary.streams
 
-import mx.com.streamCollect.services.StreamCollectServiceImpl
+import mx.com.streams.services.StreamCollectServiceImpl
 import mx.com.streams.domain.Item
 import spock.lang.Shared
 import spock.lang.Specification

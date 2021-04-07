@@ -1,4 +1,4 @@
-package mx.com.streamCollect.services;
+package mx.com.streams.services;
 
 import mx.com.streams.domain.Item;
 import mx.com.streams.services.StreamCollectService;

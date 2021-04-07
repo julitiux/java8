@@ -1,6 +1,6 @@
 package mx.com.service.unitary.streams
 
-import mx.com.flatMap.services.FlatMapServiceImpl
+import mx.com.streams.services.FlatMapServiceImpl
 import mx.com.streams.domain.Travel
 import mx.com.streams.domain.User
 import spock.lang.Shared

@@ -1,6 +1,6 @@
 package mx.com.service.unitary.streams
 
-import mx.com.parallel.services.ParallelServiceImpl
+import mx.com.streams.services.ParallelServiceImpl
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
