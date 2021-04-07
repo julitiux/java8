@@ -13,13 +13,16 @@ class StreamCollectServiceSpec extends Specification {
 
   def ""() {
     given:
-    List<String> stringList = ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro']
+    List<String> stringList = _stringList
     Map response = [:]
     when:
     response = service.usingGroupBy(stringList)
     then:
-    println response
-
+    response == _response
+    where:
+    _stringList                                                                           | _response
+    ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro'] | [uno: 1, dos: 2, tres: 3, cuatro: 4]
+    ['uno', 'dos', 'tres', 'cuatro']                                                      | [uno: 1, dos: 1, tres: 1, cuatro: 1]
   }
 
   def "test a groupBy with Java8"() {
