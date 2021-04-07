@@ -1,26 +1,33 @@
 package mx.com.service.unitary.streams
 
-import mx.com.streams.services.ConvertStreamToList
+
 import mx.com.streams.services.ConvertStreamToListImpl
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import java.util.stream.Stream
 
-class ConvertStreamToListSpec extends Specification{
+@Unroll
+class ConvertStreamToListSpec extends Specification {
 
   @Shared
-  service = new ConvertStreamToListImpl()
+    service = new ConvertStreamToListImpl()
 
-
-  def""(){
+  def ""() {
     given:
-    Stream<String> stream = Stream.of("one", "two", "three", "four")
+    Stream<String> stream = _stream
     List<String> response = []
     when:
     response = service.convertStreamToList(stream)
     then:
-    println response
+    response.equals(_response)
+    where:
+    _stream                                        | _response
+    Stream.of()                                    | []
+    Stream.of(null)                                | [null]
+    Stream.of("one", "two", "three", "four")       | ["one", "two", "three", "four"]
+    Stream.of("one", "two", "three", "four", null) | ["one", "two", "three", "four", null]
   }
 
 }
