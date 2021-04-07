@@ -20,6 +20,8 @@ class FilterAValueNullServiceSpec extends Specification {
     response == _response
     where:
     _stringList                                               | _response
+    []                                                        | []
+    [null]                                                    | []
     ['one', 'two', 'three', 'four', 'five']                   | ['one', 'two', 'three', 'four', 'five']
     [null, 'one', 'two', null, 'three', 'four', 'five', null] | ['one', 'two', 'three', 'four', 'five']
 
