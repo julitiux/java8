@@ -28,16 +28,15 @@ class StreamCollectServiceSpec extends Specification {
   }
 
 
-  def""(){
+  def ""() {
     given:
     List<String> stringList = ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro']
     Map responseSorted = [:]
     when:
     responseSorted = service.usingGroupByAndOrderByValue(stringList)
     then:
-    println responseSorted
+    responseSorted == responseSorted.sort { a, b -> a.value <=> b.value }
   }
-
 
 
   def "test a groupBy with Java8"() {
