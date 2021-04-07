@@ -12,7 +12,7 @@ class FilterAValueNullServiceSpec extends Specification {
 
   def ""() {
     given:
-    List<String> stringList = ['one', 'two', 'three', 'four', 'five']
+    List<String> stringList = [null, 'one', 'two', null, 'three', 'four', 'five', null,]
     List<String> response = []
     when:
     response = service.filterValueNullInAList(stringList)
