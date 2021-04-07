@@ -4,14 +4,16 @@ import mx.com.streamCollect.services.StreamCollectServiceImpl
 import mx.com.streams.domain.Item
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
+@Unroll
 class StreamCollectServiceSpec extends Specification {
 
   @Shared
     service = new StreamCollectServiceImpl()
 
 
-  def ""() {
+  def "making test to groupBy from java8 with a list #_stringList and #_response"() {
     given:
     List<String> stringList = _stringList
     Map response = [:]
