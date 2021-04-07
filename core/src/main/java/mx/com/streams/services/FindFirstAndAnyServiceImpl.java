@@ -11,4 +11,10 @@ public class FindFirstAndAnyServiceImpl implements FindFirstAndAnyService {
     return optional.orElse("No Value");
   }
 
+  @Override
+  public String findFirst(List<String> stringList) {
+    Optional<String> optional = stringList.stream().findFirst();
+    return optional.orElse("No Value");
+  }
+
 }
