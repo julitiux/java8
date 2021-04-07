@@ -13,19 +13,32 @@ class StreamCollectServiceSpec extends Specification {
     service = new StreamCollectServiceImpl()
 
 
-  def "making test to groupBy from java8 with a list #_stringList and #_response"() {
+  def "making groupBy test from java8 with a list #_stringList and #_response"() {
     given:
     List<String> stringList = _stringList
     Map response = [:]
     when:
     response = service.usingGroupBy(stringList)
     then:
-    response == _response
+    response.equals(_response)
     where:
     _stringList                                                                           | _response
     ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro'] | [uno: 1, dos: 2, tres: 3, cuatro: 4]
     ['uno', 'dos', 'tres', 'cuatro']                                                      | [uno: 1, dos: 1, tres: 1, cuatro: 1]
   }
+
+
+  def""(){
+    given:
+    List<String> stringList = ['uno', 'dos', 'dos', 'tres', 'tres', 'tres', 'cuatro', 'cuatro', 'cuatro', 'cuatro']
+    Map responseSorted = [:]
+    when:
+    responseSorted = service.usingGroupByAndOrderByValue(stringList)
+    then:
+    println responseSorted
+  }
+
+
 
   def "test a groupBy with Java8"() {
     given:
