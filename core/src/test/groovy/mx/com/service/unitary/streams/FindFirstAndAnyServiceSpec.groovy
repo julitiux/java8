@@ -24,16 +24,22 @@ class FindFirstAndAnyServiceSpec extends Specification {
     []                                      | 'No Value'
     ['just one value']                      | 'just one value'
     ['one', 'two', 'three', 'four', 'five'] | 'one'
+    //The last one it could be no true
   }
 
-  def""(){
+  def "making unit test of find first using #_stringList"() {
     given:
-    List<String> stringList = ['one', 'two', 'three', 'four', 'five']
+    List<String> stringList = _stringList
     String response
     when:
     response = service.findFirst(stringList)
     then:
-    println response
+    response.equals(_response)
+    where:
+    _stringList                             | _response
+    []                                      | 'No Value'
+    ['first value']                         | 'first value'
+    ['one', 'two', 'three', 'four', 'five'] | 'one'
   }
 
 
