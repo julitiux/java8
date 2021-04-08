@@ -29,4 +29,9 @@ public class StreamReduceServiceImpl implements StreamReduceService {
     return integerList.stream().reduce(0, Integer::max);
   }
 
+  @Override
+  public Integer reduceAListWithMin(List<Integer> integerList) {
+    return integerList.stream().reduce(0,Integer::min);
+  }
+
 }
