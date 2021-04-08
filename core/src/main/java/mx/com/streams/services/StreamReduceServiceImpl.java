@@ -5,7 +5,7 @@ import java.util.List;
 public class StreamReduceServiceImpl implements StreamReduceService {
 
   @Override
-  public Integer reduceAList(List<Integer> integerList) {
+  public Integer reduceAListWithAdd(List<Integer> integerList) {
     return integerList.stream().reduce(0, Integer::sum);
   }
 
