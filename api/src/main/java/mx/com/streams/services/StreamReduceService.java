@@ -7,4 +7,5 @@ public interface StreamReduceService {
   public Integer reduceAListWithMultiply(List<Integer> integerList);
   public Integer reduceAListWithDivide(List<Integer> integerList);
   public Integer reduceAListWithRest(List<Integer> integerList);
+  public Integer reduceAListWithMax(List<Integer> integerList);
 }
