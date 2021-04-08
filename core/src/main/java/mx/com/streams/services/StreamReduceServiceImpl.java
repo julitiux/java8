@@ -14,4 +14,9 @@ public class StreamReduceServiceImpl implements StreamReduceService {
     return integerList.stream().reduce(0, (a, b) -> a * b);
   }
 
+  @Override
+  public Integer reduceAListWithDivide(List<Integer> integerList) {
+    return integerList.stream().reduce(0, Integer::divideUnsigned);
+  }
+
 }
