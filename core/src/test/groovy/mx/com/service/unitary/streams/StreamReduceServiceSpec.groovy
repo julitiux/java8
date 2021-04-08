@@ -83,4 +83,18 @@ class StreamReduceServiceSpec extends Specification {
     [1, 2, 3, 4, 5, 6, 7, 8, 9] | 9
   }
 
+  def "making a unit test of Stream.reduce with method reference 0, Integer::min #_integerList"() {
+    given:
+    List<Integer> integerList = _integerList
+    Integer response
+    when:
+    response = service.reduceAListWithMin integerList
+    then:
+    response == _response
+    where:
+    _integerList                   | _response
+    []                             | 0
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] | 0
+  }
+
 }
