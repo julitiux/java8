@@ -1,11 +1,10 @@
 package mx.com.service.unitary.streams
 
+import mx.com.streams.domain.Invoice
 import mx.com.streams.services.StreamReduceServiceImpl
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
-
-import java.util.stream.Stream
 
 @Unroll
 class StreamReduceServiceSpec extends Specification {
@@ -137,6 +136,23 @@ class StreamReduceServiceSpec extends Specification {
     then:
     response
     //This is not the response that I want, response like a Stream
+  }
+
+  def "making unit test of Stream.reduce wit method map using #_invoiceList "() {
+    given:
+    List<Invoice> invoiceList = _invoiceList
+    def response
+    when:
+    response = service.sumAllQuantityInvoices invoiceList
+    then:
+    response.equals(_respone)
+    where:
+    _invoiceList | _respone
+    [
+      new Invoice('INV-001', 100.00, 100.00),
+      new Invoice('INV-002', 300.00, 300.00),
+      new Invoice('INV-002', 400.00, 400.00)
+    ]            | 800.00
   }
 
 }
