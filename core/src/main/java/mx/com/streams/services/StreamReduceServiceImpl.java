@@ -9,4 +9,9 @@ public class StreamReduceServiceImpl implements StreamReduceService {
     return integerList.stream().reduce(0, Integer::sum);
   }
 
+  @Override
+  public Integer reduceAListWithMultiply(List<Integer> integerList) {
+    return integerList.stream().reduce(0, (a, b) -> a * b);
+  }
+
 }

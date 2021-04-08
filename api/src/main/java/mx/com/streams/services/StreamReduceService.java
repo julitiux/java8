@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface StreamReduceService {
   public Integer reduceAListWithAdd(List<Integer> integerList);
+  public Integer reduceAListWithMultiply(List<Integer> integerList);
 }
