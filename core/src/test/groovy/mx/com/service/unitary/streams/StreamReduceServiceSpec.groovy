@@ -5,6 +5,8 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import java.util.stream.Stream
+
 @Unroll
 class StreamReduceServiceSpec extends Specification {
 
@@ -124,6 +126,17 @@ class StreamReduceServiceSpec extends Specification {
     _stringList                                             | _response
     []                                                      | ""
     ['one', 'two', 'three', 'four', 'five', 'six', 'seven'] | "one|two|three|four|five|six|seven"
+  }
+
+  def "making a unit test of Stream.reduce with reference method String::join #_integerList"() {
+    given:
+    List<String> stringList = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
+    def response
+    when:
+    response = service.joinStringWithAPipeOtherOption stringList
+    then:
+    response
+    //This is not the response that I want, response like a Stream
   }
 
 }
