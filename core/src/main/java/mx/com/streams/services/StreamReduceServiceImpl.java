@@ -31,7 +31,12 @@ public class StreamReduceServiceImpl implements StreamReduceService {
 
   @Override
   public Integer reduceAListWithMin(List<Integer> integerList) {
-    return integerList.stream().reduce(0,Integer::min);
+    return integerList.stream().reduce(0, Integer::min);
+  }
+
+  @Override
+  public String joinStringWithAPipe(List<String> stringList) {
+    return stringList.stream().reduce("", (a, b) -> a + "|" + b);
   }
 
 }
