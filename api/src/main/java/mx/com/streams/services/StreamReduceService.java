@@ -1,5 +1,8 @@
 package mx.com.streams.services;
 
+import mx.com.streams.domain.Invoice;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface StreamReduceService {
@@ -13,4 +16,6 @@ public interface StreamReduceService {
   public String joinStringWithAPipe(List<String> stringList);
   public String joinStringWithAPipeStartingWithoutPipe(List<String> stringList);
   public String joinStringWithAPipeOtherOption(List<String> stringList);
+
+  public BigDecimal sumAllQuantityInvoices(List<Invoice> invoiceList);
 }
