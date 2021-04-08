@@ -97,4 +97,19 @@ class StreamReduceServiceSpec extends Specification {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] | 0
   }
 
+  def "making a unit test of Stream.reduce with almbda \"\", (a, b) -> a + \"|\" + b #_integerList"() {
+    given:
+    List<String> stringList = _stringList
+    String response
+    when:
+    response = service.joinStringWithAPipe stringList
+    then:
+    println response
+    response == _response
+    where:
+    _stringList                                             | _response
+    []                                                      | ""
+    ['one', 'two', 'three', 'four', 'five', 'six', 'seven'] | "|one|two|three|four|five|six|seven"
+  }
+
 }
