@@ -11,4 +11,6 @@ public interface StreamReduceService {
   public Integer reduceAListWithMin(List<Integer> integerList);
 
   public String joinStringWithAPipe(List<String> stringList);
+  public String joinStringWithAPipeStartingWithoutPipe(List<String> stringList);
+  public String joinStringWithAPipeOtherOption(List<String> stringList);
 }
