@@ -20,4 +20,14 @@ class FileServiceSpec extends Specification {
     _filename << ["src/main/resources/Files/lines.txt"]
   }
 
+  def "making unit test using Stream and send a filter startWith with the file #_filename"() {
+    given:
+    String filename = _filename
+    String startWith = 'lin'
+    expect:
+    service.readFileLineByLineFilterLines(filename, startWith)
+    where:
+    _filename << ["src/main/resources/Files/lines.txt"]
+  }
+
 }
