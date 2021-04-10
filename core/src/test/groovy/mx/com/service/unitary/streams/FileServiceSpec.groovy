@@ -7,11 +7,13 @@ import spock.lang.Specification
 class FileServiceSpec extends Specification {
 
   @Shared
-  service = new FileServiceImpl();
+    service = new FileServiceImpl();
 
   def ""() {
+    given:
+    String filename = "src/main/resources/Files/lines.txt"
     expect:
-    service.readFileLineByLine()
+    service.readFileLineByLine(filename)
   }
 
 }
