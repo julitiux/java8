@@ -20,4 +20,16 @@ public class FileServiceImpl implements FileService {
 
   }
 
+  @Override
+  public void readFileLineByLineFilterLines() {
+    String filename = "lines.txt";
+
+    try (Stream<String> stream = Files.lines(Paths.get(filename))) {
+      stream.filter(line -> line.startsWith("linea")).map(String::toUpperCase).forEach(System.out::println);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+  }
+
 }
