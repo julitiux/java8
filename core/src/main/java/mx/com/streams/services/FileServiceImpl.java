@@ -8,28 +8,21 @@ import java.util.stream.Stream;
 public class FileServiceImpl implements FileService {
 
   @Override
-  public void readFileLineByLine() {
-
-    String filename = "lines.txt";
-
+  public void readFileLineByLine(String filename) {
     try (Stream<String> stream = Files.lines(Paths.get(filename))) {
       stream.forEach(System.out::println);
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 
   @Override
-  public void readFileLineByLineFilterLines() {
-    String filename = "lines.txt";
-
+  public void readFileLineByLineFilterLines(String filename) {
     try (Stream<String> stream = Files.lines(Paths.get(filename))) {
       stream.filter(line -> line.startsWith("linea")).map(String::toUpperCase).forEach(System.out::println);
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 
 }
