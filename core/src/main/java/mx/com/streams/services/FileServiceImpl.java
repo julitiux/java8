@@ -1,10 +1,12 @@
 package mx.com.streams.services;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class FileServiceImpl implements FileService {
@@ -43,6 +45,19 @@ public class FileServiceImpl implements FileService {
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         System.out.println(line);
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public void readScanner(String filename) {
+    try (Scanner scanner = new Scanner(new File(filename))) {
+
+      while (scanner.hasNext()) {
+        System.out.println(scanner.nextLine());
       }
 
     } catch (IOException e) {

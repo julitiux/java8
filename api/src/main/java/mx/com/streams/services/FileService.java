@@ -5,4 +5,5 @@ public interface FileService {
   void readFileLineByLineFilterLines(String filename, String startWith);
   void readBufferedReader(String filename);
   void readBufferedReaderAndScanner(String filename);
+  void readScanner(String filename);
 }
