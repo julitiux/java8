@@ -6,6 +6,8 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import java.util.stream.Stream
+
 @Unroll
 class StreamToArrayServiceSpec extends Specification {
 
@@ -53,6 +55,19 @@ class StreamToArrayServiceSpec extends Specification {
     _startRange | _endRange | _response
     0           | 10        | [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+  }
+
+  def "making unit test of the method convertArrayUsingStream using mapToInt and toArray with #_integerStram"() {
+    given:
+    Stream<Integer> integerStream = _integerStram
+    int[] response
+    when:
+    response = service.convertArrayUsingStream integerStream
+    then:
+    response == _response
+    where:
+    _integerStram                        | _response
+    Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9) | Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
   }
 
 }
