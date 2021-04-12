@@ -17,7 +17,7 @@ class StreamToArrayServiceSpec extends Specification {
     String string = "this is a important test"
     String[] response
     when:
-    response = service.getStreamToArray(string)
+    response = service.convertStringToArray(string)
     then:
     response.each {println it}
   }
