@@ -40,4 +40,15 @@ class StreamToArrayServiceSpec extends Specification {
     [1, 2, 3, 4, 5, 6] | [2, 4, 6, 8, 10, 12]
   }
 
+  def ""() {
+    given:
+    Integer startRange = 0
+    Integer endRange = 10
+    Integer[] response
+    when:
+    response = service.convertStreamToArrayInt(startRange, endRange)
+    then:
+    println response
+  }
+
 }
