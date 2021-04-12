@@ -37,6 +37,15 @@ class FileServiceSpec extends Specification {
     service.readBufferedReaderAndScanner(filename)
     where:
     _filename << ["src/main/resources/Files/lines.txt"]
+  }
+
+  def "making unit test using just Scanner and the name of file #_filename"() {
+    given:
+    String filename = _filename
+    expect:
+    service.readScanner(filename)
+    where:
+    _filename << ["src/main/resources/Files/lines.txt"]
 
   }
 
