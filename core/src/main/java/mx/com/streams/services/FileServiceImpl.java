@@ -1,6 +1,7 @@
 package mx.com.streams.services;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -28,11 +29,26 @@ public class FileServiceImpl implements FileService {
 
   @Override
   public void readBufferedReader(String filename) {
-    try(BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(filename))){
+    try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(filename))) {
       bufferedReader.lines().forEach(System.out::println);
-    }catch (IOException e){
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
+
+  @Override
+  public void readBufferedReaderAndScanner(String filename) {
+    try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
+
+      String line;
+      while ((line = bufferedReader.readLine()) != null) {
+        System.out.println(line);
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
 
 }
