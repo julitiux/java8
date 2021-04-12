@@ -2,6 +2,7 @@ package mx.com.streams.services;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamToArrayServiceImpl implements StreamToArrayService {
 
@@ -18,6 +19,11 @@ public class StreamToArrayServiceImpl implements StreamToArrayService {
   @Override
   public int[] convertStreamToArrayInt(Integer startRange, Integer endRange) {
     return IntStream.rangeClosed(startRange, endRange).toArray();
+  }
+
+  @Override
+  public int[] convertArrayUsingStream(Stream<Integer> integerStream) {
+    return integerStream.mapToInt(integer -> integer).toArray();
   }
 
 }
