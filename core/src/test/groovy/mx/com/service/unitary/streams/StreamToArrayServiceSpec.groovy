@@ -27,15 +27,17 @@ class StreamToArrayServiceSpec extends Specification {
 //    ""                         | [] THIS ELEMENT GET ANOTHER TYPE OF ELEMENT NULL
   }
 
-  def ""() {
+  def "making unit test using Arrays.stream, map, boxed and toArray with the array #_integers"() {
     given:
-    int[] integers = [1, 2, 3, 4, 5, 6]
+    int[] integers = _integers
     Integer[] response
     when:
     response = service.convertArrayIntToArrayInteger(integers)
     then:
-    println response
-
+    response.equals _response
+    where:
+    _integers          | _response
+    [1, 2, 3, 4, 5, 6] | [2, 4, 6, 8, 10, 12]
   }
 
 }
