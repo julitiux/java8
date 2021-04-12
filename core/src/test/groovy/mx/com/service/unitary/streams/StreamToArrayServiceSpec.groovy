@@ -12,14 +12,19 @@ class StreamToArrayServiceSpec extends Specification {
   @Shared
     service = new StreamToArrayServiceImpl()
 
-  def ""() {
+  def "making a unit test using Arrray.Stream(string.split('\\\\s+')), just for transform a String to Array"() {
     given:
-    String string = "this is a important test"
+    String string = _string
     String[] response
     when:
     response = service.convertStringToArray(string)
     then:
-    response.each {println it}
+    response.equals _response
+    where:
+    _string                    | _response
+    "this is a important test" | Arrays.asList("this", "is", "a", "important", "test")
+    "null"                     | Arrays.asList("null")
+//    ""                         | [] THIS ELEMENT GET ANOTHER TYPE OF ELEMENT NULL
   }
 
 }
