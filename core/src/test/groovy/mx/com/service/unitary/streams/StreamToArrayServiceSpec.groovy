@@ -27,4 +27,15 @@ class StreamToArrayServiceSpec extends Specification {
 //    ""                         | [] THIS ELEMENT GET ANOTHER TYPE OF ELEMENT NULL
   }
 
+  def ""() {
+    given:
+    int[] integers = [1, 2, 3, 4, 5, 6]
+    Integer[] response
+    when:
+    response = service.convertArrayIntToArrayInteger(integers)
+    then:
+    println response
+
+  }
+
 }
