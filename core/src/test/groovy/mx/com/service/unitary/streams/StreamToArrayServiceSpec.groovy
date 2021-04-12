@@ -40,15 +40,19 @@ class StreamToArrayServiceSpec extends Specification {
     [1, 2, 3, 4, 5, 6] | [2, 4, 6, 8, 10, 12]
   }
 
-  def ""() {
+  def "making unit test of the method convertStreamToArrayInt using IntStream.rangeClosed with #_startRange #_endRange"() {
     given:
-    Integer startRange = 0
-    Integer endRange = 10
+    Integer startRange = _startRange
+    Integer endRange = _endRange
     Integer[] response
     when:
     response = service.convertStreamToArrayInt(startRange, endRange)
     then:
-    println response
+    response.equals _response
+    where:
+    _startRange | _endRange | _response
+    0           | 10        | [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
   }
 
 }
