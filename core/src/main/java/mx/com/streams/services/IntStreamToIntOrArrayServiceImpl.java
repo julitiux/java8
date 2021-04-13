@@ -8,12 +8,10 @@ public class IntStreamToIntOrArrayServiceImpl implements IntStreamToIntOrArraySe
 
   @Override
   public int getFirstElementOfArray(int[] ints) {
-
     IntStream intStream = Arrays.stream(ints);
     OptionalInt optionalInt = intStream.findFirst();
 
     return optionalInt.getAsInt();
-
   }
 
   @Override
