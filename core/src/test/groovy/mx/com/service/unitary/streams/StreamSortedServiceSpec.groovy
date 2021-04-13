@@ -1,5 +1,6 @@
 package mx.com.service.unitary.streams
 
+import mx.com.streams.domain.Person
 import mx.com.streams.services.StreamSortedServiceImpl
 import spock.lang.Shared
 import spock.lang.Specification
@@ -34,6 +35,18 @@ class StreamSortedServiceSpec extends Specification {
     where:
     _stringList                                             | _response
     ['one', 'two', 'three', 'four', 'five', 'six', 'seven'] | ['two', 'three', 'six', 'seven', 'one', 'four', 'five']
+  }
+
+  def ""() {
+    given:
+    List<Person> personList = [new Person('Julio', 'j.ramirez008', 36),
+                               new Person('Gilberto', 'g.reyes008', 36),
+                               new Person('Joel', 'jj.gonzalez', 32)]
+    List<Person> response
+    when:
+    response = service.sortedPersonByUsername personList
+    then:
+    println response*.username
   }
 
 }
