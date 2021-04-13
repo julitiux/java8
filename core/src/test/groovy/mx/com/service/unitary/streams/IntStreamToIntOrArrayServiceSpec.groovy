@@ -56,15 +56,17 @@ class IntStreamToIntOrArrayServiceSpec extends Specification {
     Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9) | Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
   }
 
-  def ""() {
-
+  def "making unit test using Arrays.stream with #_"() {
     given:
     int[] ints = Arrays.asList(1, 2, 3, 4, 5, 6)
     int[] response
     when:
     response = service.convertArrayIntToArrayInt ints
     then:
-    println response
+    response == _response
+    where:
+    _ints                           | _response
+    Arrays.asList(1, 2, 3, 4, 5, 6) | Arrays.asList(1, 2, 3, 4, 5, 6)
 
   }
 
