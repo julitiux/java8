@@ -17,4 +17,12 @@ public class IntStreamToIntOrArrayServiceImpl implements IntStreamToIntOrArraySe
 
   }
 
+  @Override
+  public int getAnyElementOfArray(int[] ints) {
+    IntStream intStream = Arrays.stream(ints);
+    OptionalInt optionalInt = intStream.filter( number -> number % 2 == 0).findAny();
+
+    return optionalInt.getAsInt();
+  }
+
 }
