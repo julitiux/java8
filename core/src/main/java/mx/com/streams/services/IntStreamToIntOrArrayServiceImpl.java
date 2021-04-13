@@ -1,5 +1,6 @@
 package mx.com.streams.services;
 
+import javax.print.attribute.IntegerSyntax;
 import java.util.Arrays;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
@@ -26,6 +27,12 @@ public class IntStreamToIntOrArrayServiceImpl implements IntStreamToIntOrArraySe
   public Integer[] convertArrayIntToArrayInteger(Integer[] integers) {
     IntStream intStream = (IntStream) Arrays.stream(integers);
     return intStream.boxed().toArray(Integer[]::new);
+  }
+
+  @Override
+  public int[] convertArrayIntToArrayInt(int[] ints) {
+    IntStream intStream = Arrays.stream(ints);
+    return intStream.toArray();
   }
 
 }
