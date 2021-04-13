@@ -1,7 +1,6 @@
 package mx.com.streams.services;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
@@ -23,6 +22,11 @@ public class IntStreamToIntOrArrayServiceImpl implements IntStreamToIntOrArraySe
     OptionalInt optionalInt = intStream.filter( number -> number % 2 == 0).findAny();
 
     return optionalInt.getAsInt();
+  }
+
+  @Override
+  public Integer[] convertArrayIntToArrayInteger(Integer[] integers) {
+    return new Integer[0];
   }
 
 }
