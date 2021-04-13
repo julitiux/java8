@@ -23,14 +23,17 @@ class StreamSortedServiceSpec extends Specification {
 
   }
 
-  def""(){
+  def "making unit test using stream().sorted(Comparator.reverseOrder()) with #_stringList"() {
     given:
-    List<String> stringList = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
+    List<String> stringList = _stringList
     List<String> response
     when:
     response = service.sortedWithReverseOrder stringList
     then:
-    println response
+    response == _response
+    where:
+    _stringList                                             | _response
+    ['one', 'two', 'three', 'four', 'five', 'six', 'seven'] | ['two', 'three', 'six', 'seven', 'one', 'four', 'five']
   }
 
 }
