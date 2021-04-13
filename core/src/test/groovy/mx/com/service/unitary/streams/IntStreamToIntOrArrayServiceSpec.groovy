@@ -43,4 +43,16 @@ class IntStreamToIntOrArrayServiceSpec extends Specification {
 
   }
 
+  def ""() {
+    given:
+    Integer[] integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    Integer[] response
+    when:
+    response = service.convertArrayIntToArrayInteger integers
+    then:
+    println response
+
+
+  }
+
 }
