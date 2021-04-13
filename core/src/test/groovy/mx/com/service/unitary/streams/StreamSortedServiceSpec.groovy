@@ -23,4 +23,14 @@ class StreamSortedServiceSpec extends Specification {
 
   }
 
+  def""(){
+    given:
+    List<String> stringList = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
+    List<String> response
+    when:
+    response = service.sortedWithReverseOrder stringList
+    then:
+    println response
+  }
+
 }
