@@ -24,7 +24,8 @@ public class IntStreamToIntOrArrayServiceImpl implements IntStreamToIntOrArraySe
 
   @Override
   public Integer[] convertArrayIntToArrayInteger(Integer[] integers) {
-    return new Integer[0];
+    IntStream intStream = (IntStream) Arrays.stream(integers);
+    return intStream.boxed().toArray(Integer[]::new);
   }
 
 }
