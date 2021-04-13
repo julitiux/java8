@@ -37,7 +37,7 @@ class StreamSortedServiceSpec extends Specification {
     ['one', 'two', 'three', 'four', 'five', 'six', 'seven'] | ['two', 'three', 'six', 'seven', 'one', 'four', 'five']
   }
 
-  def ""() {
+  def "making unit test sorted a list of Person with .sorted(Comparator.comparing(Person::getUsername)) with #_personList"() {
     given:
     List<Person> personList = [new Person('Julio', 'j.ramirez008', 36),
                                new Person('Gilberto', 'g.reyes008', 36),
@@ -46,7 +46,8 @@ class StreamSortedServiceSpec extends Specification {
     when:
     response = service.sortedPersonByUsername personList
     then:
-    println response*.username
+    response == personList.sort { it.username }
+
   }
 
 }
