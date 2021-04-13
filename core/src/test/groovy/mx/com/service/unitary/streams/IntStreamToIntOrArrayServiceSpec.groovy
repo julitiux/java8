@@ -3,20 +3,28 @@ package mx.com.service.unitary.streams
 import mx.com.streams.services.IntStreamToIntOrArrayServiceImpl
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
+@Unroll
 class IntStreamToIntOrArrayServiceSpec extends Specification {
 
   @Shared
     service = new IntStreamToIntOrArrayServiceImpl()
 
-  def ""() {
+  def "making unit test of the method getFirstElementOfArray and using elements like Arrays.stream and findFirst with #_ints"() {
     given:
-    int[] ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+    int[] ints = _ints
     int response
     when:
     response = service.getFirstElementOfArray(ints)
     then:
-    println response
+    response == _response
+    where:
+    _ints                                       | _response
+    Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0) | 1
+    Arrays.asList(0)                            | 0
+    Arrays.asList(10000)                        | 10000
+
   }
 
 }
