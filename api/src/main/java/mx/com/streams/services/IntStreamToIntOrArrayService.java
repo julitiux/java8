@@ -1,7 +1,7 @@
 package mx.com.streams.services;
 
 public interface IntStreamToIntOrArrayService {
-  public int getFirstElementOfArray(int[] ints);
-  public int getAnyElementOfArray(int[] ints);
-  public Integer[] convertArrayIntToArrayInteger(Integer[] integers);
+  int getFirstElementOfArray(int[] ints);
+  int getAnyElementOfArray(int[] ints);
+  Integer[] convertArrayIntToArrayInteger(Integer[] integers);
 }
