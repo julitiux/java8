@@ -27,4 +27,20 @@ class IntStreamToIntOrArrayServiceSpec extends Specification {
 
   }
 
+  def "making unit test of the method getAnyElementOfArray and using elements like Arrays.stream and findAny with #_ints"() {
+    given:
+    int[] ints = _ints
+    int response
+    when:
+    response = service.getAnyElementOfArray(ints)
+    then:
+    response >= _response
+    where:
+    _ints                                       | _response
+    Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0) | 2
+    Arrays.asList(0)                            | 0
+    Arrays.asList(10000)                        | 5000
+
+  }
+
 }
